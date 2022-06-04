@@ -1,5 +1,5 @@
-# Boring
-### Let's get bored together!
+# Boring Website
+### Let's get bored together
 
 
 Just clone the repository ```git clone https://github.com/thoms2901/boring.git```
