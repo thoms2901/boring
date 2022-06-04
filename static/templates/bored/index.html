@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="templates/bored/style.css">
+    <title>Border</title>
+</head>
+<body>
+    <div class="m-5 py-5 big-div">
+        <div class="title">
+            <h2>Find a boring solution to your boredom</h2>
+            <br>
+        </div>
+        <div class="container">
+            <div class="total">
+                <div class="little-box">
+                    <label>Type of activity</label>
+                    <select class="form-select form-select-lg mb-3 activity" aria-label=".form-select-lg example">
+                        <option value ="-1" >Don't specify</option>
+                        <option value="education">Education</option>
+                        <option value="recreational">Recreational</option>
+                        <option value="social">Social</option>
+                        <option value="diy">Diy</option>
+                        <option value="charity">Charity</option>
+                        <option value="cooking">Cooking</option>
+                        <option value="relaxation">Relaxation</option>
+                        <option value="music">Music</option>
+                        <option value="busywork">Busywork</option>
+                    </select>
+                </div>
+                <div class="little-box">
+                    <label>Participants</label>
+                    <select class="form-select form-select-lg mb-3 participants" aria-label=".form-select-lg example">
+                        <option value=""-1 >Don't specify</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                        <option value="5">Five</option>
+                    </select>
+                </div>
+                  <div class="btn btn-warning" >
+                      <a id="lets-go">Let's go</a>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-5 py-5 little-div">
+        <div class="title">
+            <h2>Here there is your boring solution</h2>
+            <br>
+        </div>
+        <div class="m-5 py-5">
+            <div class="container">
+                <div class="justify-content-center">
+                    <table class="table table-dark  table-hover table-bordered border-white">
+                        <thead>
+                            <tr>
+                              <th class="text-center px-0" scope="col">Activity</th>
+                              <th class="text-center" scope="col">Type</th>
+                              <th class="text-center" scope="col">Participants</th>
+                              <th class="text-center" scope="col">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody class="content-bored">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="buttons-div">
+            <div class="buttons-center-div">
+                <div class="btn btn-warning" >
+                    <a id="try-again">Another one</a>
+                </div>
+                <div class="btn btn-warning" >
+                    <a id="get-back">Get back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="templates/bored/function.js"></script>
+<!-- <script>$('.big-div').attr("style", "display:none;") </script> -->
+</html>
+

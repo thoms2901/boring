@@ -1,0 +1,20 @@
+{
+  "name": "boring",
+  "version": "1.0.0",
+  "description": "A boring website",
+  "main": "server.js",
+  "dependencies": {
+    "amqplib": "latest",
+    "express": "latest",
+    "bcryptjs": "latest",
+    "body-parser": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "request": "latest",
+    "mongoose": "latest",
+    "express-session": "latest",
+  	"apidoc": "latest",
+	"chai": "latest",
+	"axios": "latest"
+  }
+}

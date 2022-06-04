@@ -1,0 +1,72 @@
+body{
+    background-image: url("../../img/sfondo.jpg");
+    background-size: 100%;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: courier;
+    height: 80vh;
+}
+
+.btn{
+    font-size: x-large;
+    font-weight: bold;
+    font-family: courier;
+}
+
+select{
+    padding: 10px;
+    text-align: center;
+}
+
+.big-div{
+    position: relative;
+    top: 20%;
+    bottom: 50%;
+}
+
+.little-div{
+    display: none;
+    position: relative;
+    top: 20%;
+    bottom: 50%;
+}
+
+.total{
+    display: grid;
+    justify-items: center;
+}
+
+.little-box{
+    display: grid;
+    justify-items: center;
+}
+
+label{
+    color: violet;
+    background: black;
+}
+
+h2{
+    text-align: center;
+    color: violet;
+    background: black;
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: courier;
+    width: fit-content;
+}
+
+.title{
+    justify-content: center;
+    display: flex;
+    margin-bottom: 5%;
+}
+
+.buttons-div{
+    display: grid;
+    justify-content: center;
+}
+
+.buttons-center-div{
+    width: fit-content;
+}
