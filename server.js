@@ -28,17 +28,6 @@ app.use(session({
 //static files
 app.use(express.static(path.join(__dirname, '/static')));
 
-// Session-persisted message middleware
-app.use(function(req, res, next){
-  var err = req.session.error;
-  var msg = req.session.success;
-  delete req.session.error;
-  delete req.session.success;
-  res.locals.message = '';
-  if (err) res.locals.message = '<p class="msg error">' + err + '</p>';
-  if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>';
-  next();
-});
 
 
 
@@ -49,72 +38,6 @@ app.get('/', (req, res) => {
 app.get('/bored', (req, res) => {
   res.sendFile(path.join(__dirname,"/static/templates/bored/index.html"));
 });
-
-
-
-app.get('/gtoken', (req, res) => {
-  var url = 'https://www.googleapis.com/oauth2/v3/token';
-  var formData = {
-    code: req.query.code,
-    client_id: process.env.G_CLIENT_ID,
-    client_secret: process.env.G_CLIENT_SECRET,
-    redirect_uri: host + "/googlecallback",
-    grant_type: 'authorization_code'
-  }
-  request.post({url: url, form: formData}, (error, response, body) => {
-    if (error){
-      console.log(error);
-      alert(error);
-    }
-    var info = JSON.parse(body);
-    if(info.error != undefined){
-      res.send(info.error);
-    }
-    else{
-      req.session.google_token = info.access_token;
-      res.redirect('/registration-google');
-    }
-  });
-});
-
-app.get('/registration-google', (req, res) => {
-  if(req.session.google_token == undefined){
-    res.send('Error');
-  }
-  var g_token = req.session.google_token;
-  var data_url = 'https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token='+g_token;
-  // var headers = {'Authorization': 'Bearer '+g_token};
-  var utente;
-  request.get({url: data_url}, (err, resp, body) => {
-    if (err){
-      console.log(err);
-    }
-    var data = JSON.parse(body);
-    if(data.error != undefined){
-      res.send(data.error);
-    }
-    else{
-      utente = {
-        "id":	data.id,
-        "email":	data.email,
-        "verified_email":	data.verified_email,
-        "name":	data.name,
-        "given_name":	data.given_name,
-        "family_name":	data.family_name,
-        "picture":	data.picture,
-        "locale":	data.locale,
-      }
-    }
-    req.session.regenerate(() => {
-      req.session.user = {username: utente.email, email: utente.email};
-      req.session.google_token = g_token;
-      // va salvato l'utente o va effettuato il login con le credenziali google, dove l'username può essere la email e la password il token
-      res.redirect("/");
-    });
-  });
-});
-
-
 
 
 app.get("/getBored", (req, res) => {
@@ -142,6 +65,6 @@ app.get("/getBored", (req, res) => {
 
 
 app.listen(3000, () => {
-  console.log('Example app listening on port 3000!');
-  console.log('localhost:3000');
+  console.log('App is online!');
+  console.log('http://localhost:3000');
 });
