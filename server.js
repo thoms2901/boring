@@ -2,12 +2,9 @@ const express = require('express');
 const path = require('path');
 const request = require('request');
 const body_parser = require('body-parser');
-// const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const crypto = require('crypto');
 try{require("dotenv").config();}catch(e){console.log(e);}
-// const { exec } = require("child_process");
-const { networkInterfaces } = require('os');
 const cors = require('cors');
 
 const app = express(); // create an instance of an express app
@@ -28,9 +25,6 @@ app.use(session({
 //static files
 app.use(express.static(path.join(__dirname, '/static')));
 
-
-
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname,"/static/templates/homepage/index.html"));
 });
@@ -38,7 +32,6 @@ app.get('/', (req, res) => {
 app.get('/bored', (req, res) => {
   res.sendFile(path.join(__dirname,"/static/templates/bored/index.html"));
 });
-
 
 app.get("/getBored", (req, res) => {
   var type = req.query.type;
@@ -60,9 +53,6 @@ app.get("/getBored", (req, res) => {
     res.send(data);
   });
 });
-
-
-
 
 app.listen(3000, () => {
   console.log('App is online!');
